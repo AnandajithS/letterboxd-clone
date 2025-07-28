@@ -8,7 +8,7 @@ export default function HomePage() {
   const [HomeData, setHomeData]=useState(null);
   useEffect(()=>{
     const fetchHomeData=async()=>{
-      const result = await fetch('http://localhost:5000/api/home');
+      const result = await fetch('https://letterboxd-clone-wc6b.onrender.com/api/home');
       const data = await result.json();
       setHomeData(data);
     };

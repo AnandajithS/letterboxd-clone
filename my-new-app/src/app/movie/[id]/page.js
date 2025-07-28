@@ -24,7 +24,7 @@ export default function MovieReview() {
     if (inWatchlist) {
       // If the movie is already in the watchlist, remove it
       try {
-        const res = await fetch('http://localhost:5000/api/watchlist', {
+        const res = await fetch('https://letterboxd-clone-wc6b.onrender.com/api/watchlist', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function MovieReview() {
     } else {
       // If the movie is not in the watchlist, add it
       try {
-        const res = await fetch('http://localhost:5000/api/watchlist', {
+        const res = await fetch('https://letterboxd-clone-wc6b.onrender.com/api/watchlist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -69,20 +69,20 @@ export default function MovieReview() {
 
   useEffect(() => {
     const fetchMovieData = async () => {
-      const result = await fetch(`http://localhost:5000/api/movie/${id}`);
+      const result = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/movie/${id}`);
       const data = await result.json();
       setMovieData(data);
     };
 
     const fetchReviews = async () => {
-      const result = await fetch(`http://localhost:5000/api/reviews/${id}`);
+      const result = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/reviews/${id}`);
       const data = await result.json();
       setReviews(data);
     };
 
     const checkWatchlist = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/watchlist/${userId}`);
+        const res = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/watchlist/${userId}`);
         const data = await res.json();
         const movieInWatchlist = data.watchlist_items.some((item) => item.movie_id == id);
 
@@ -122,7 +122,7 @@ export default function MovieReview() {
     
 
     try {
-      const response = await fetch('http://localhost:5000/api/review', {
+      const response = await fetch('https://letterboxd-clone-wc6b.onrender.com/api/review', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ export default function MovieReview() {
     console.log(reviews.averageRating)
     alert(data.message);
     setReviewText('');
-    const result = await fetch(`http://localhost:5000/api/reviews/${id}`);
+    const result = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/reviews/${id}`);
     const newReviews = await result.json();
     setReviews(newReviews);
     

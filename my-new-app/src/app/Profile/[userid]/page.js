@@ -37,7 +37,7 @@ export default function Profile() {
     }
   
     try {
-      const res = await fetch('http://localhost:5000/api/reset_password', {
+      const res = await fetch('https://letterboxd-clone-wc6b.onrender.com/api/reset_password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -78,7 +78,7 @@ export default function Profile() {
   useEffect(() => {
     // Fetch user profile data from the backend
     const fetchUserData = async () => {
-      const res = await fetch(`http://localhost:5000/api/profile/${userId}`);
+      const res = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/profile/${userId}`);
       const data = await res.json();
       if (res.ok) {
         setUserData(data);

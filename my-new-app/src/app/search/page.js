@@ -12,7 +12,7 @@ export default function SearchPage() {
     if (!query.trim()) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/search?term=${encodeURIComponent(query)}`);
+      const res = await fetch(`https://letterboxd-clone-wc6b.onrender.com/api/search?term=${encodeURIComponent(query)}`);
       const data = await res.json();
       setResults(data['Search Results'] || []);
       setSearched(true);
